@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="greet.js"></script>
+    <script src="greet-widget.js"></script>
+    <script src="enough-airtime.js"></script>
+    <script src="enoughAirtime-widget.js"></script>
+    <script src="totalPhoneBill.js"></script>
+    <script src="word-Crush.js"></script>
+    <script src="wordCrush-widget.js"></script>
+    <script src="totalPhoneBill-widget.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <script>
+        // console.log(greet("Bob"));
+    </script>
+
+    <style>
+        .message {
+            padding: 1em;
+            background-color:bisque;
+            margin-bottom: 1em;
+        }
+
+        body {
+            background-color: palevioletred;
+        }
+
+        h1 {
+            margin-left: 15em;
+        }
+        .button {
+            padding-top: 0.5em;
+        }
+
+        .input>label {
+            display: inline-block;
+            width: 15em;
+            padding: 0.5em;
+        }
+
+        .input>input[type="text"] {
+            /* display: inline-block;
+            width: 15em; */
+            padding: 0.5em;
+            margin: 0.5em;
+        }
+
+        .widgets {
+            display: flex;
+
+        }
+
+        .widget1 {
+            flex: 1;
+            border: 1px solid;
+            border-radius: 1em;
+            margin: 1em;
+            padding: 2em;
+            background-color: pink;
+        }
+
+        .widget2 {
+            flex: 1;
+            border: 1px solid;
+            border-radius: 1em;
+            margin: 1em;
+            padding: 2em;
+            background-color: darksalmon;
+        }
+
+        .widget3 {
+            flex: 1;
+            border: 1px solid;
+            border-radius: 1em;
+            margin: 1em;
+            padding: 2em;
+            background-color: aquamarine;
+        }
+
+        .widget4 {
+            flex: 1;
+            border: 1px solid;
+            border-radius: 1em;
+            margin: 1em;
+            padding: 2em;
+            background-color:maroon;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bootcamp Alpinejs Widgets </h1>
+    <div class="widgets">
+        <div class="widget1" x-data="greetWidget">
+
+            <h2>Greet Widget</h2>
+
+            <div x-show="message.length > 0" class="message" x-text="message">
+                You will be greeted here...
+            </div>
+
+            <label for="name">Please enter your name</label>
+            <input type="text" x-model="name" id="name">
+            <div class="button">
+                <button x-on:click="greetMe">Greet</button>
+            </div>
+            
+        </div>
+
+        <div class="widget2" x-data="enoughAirtimeWidget">
+            <h2>Enough Airtime</h2>
+
+            <div class="input">
+                <label for="usage">Please enter your airtime</label>
+                <input type="text" x-model="airtimeUsage " id="usage">
+            </div>
+            <div class="input">
+                <label for="amount">Amount Available</label>
+                <input type="text" x-model="availableAmount" id="amount">
+            </div>
+            <div x-show="airtimeMessage.length > 0" class="message" x-text="airtimeMessage">
+
+            </div>
+            <div>
+                <button x-on:click="calculate">Calculate balance left</button>
+            </div>
+        </div>
+
+
+        <div class="widget3" x-data="totalPhoneBillWidget">
+            <h2>Total Phonebill</h2>
+            <div class="input">
+                <label for="bill1">Please enter bill usage</label>
+                <input type="text" x-model="billUsage" id="bill1">
+            </div>
+            <div x-show="billMessage.length > 0" class="message" x-text="billMessage">
+
+            </div>
+            <div>
+                <button x-on:click="calculate">Calculate total bill</button>
+            </div>
+        </div>
+
+        <div class="widget4" x-data="wordCrushWidget">
+            <h2>wordCrush</h2>
+            
+            <div class="input">
+                <label for="sentence">Please enter a sentence</label>
+                <input type="text" x-model="word" id="sentence">
+            </div>
+            
+                <div class="input">
+                    <label for="sentence">The longestWord</label>
+                    <input type="text" x-model="LongestWord" id="sentence">
+                </div>
+                <div class="input">
+                    <label for="sentence">The shortestWord</label>
+                    <input type="text" x-model="ShortestWord" id="sentence">
+                </div>
+                <div class="input">
+                    <label for="sentence">The length of word</label>
+                    <input type="text" x-model="WordLength" id="sentence">
+                </div>
+                
+            
+            <div>
+                    <button x-on:click="play">Display results</button>
+                </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
