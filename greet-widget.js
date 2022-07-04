@@ -11,6 +11,7 @@ document.addEventListener('alpine:init', () => {
                 this.message = greetingMessage;
                 setTimeout(() => {
                     this.message = '';
+                    this.name = '';
                 }, 3000);
             }
         }
